@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Menu Component Example</string>
+    <string name="red_text">Red</string>
+    <string name="green_text">Green</string>
+    <string name="violet_text">Violet</string>
+    <string name="orange_text">Orange</string>
+    <string name="revert_button_text">Revert Color</string>
+</resources>
