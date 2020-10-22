@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val buttonId = findViewById<Button>(R.id.revertButton)
+        buttonId.setOnClickListener {
+            changeTextColor("#03A9F4")
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
