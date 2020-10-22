@@ -9,21 +9,31 @@ import android.widget.AdapterView
 import android.widget.Button
 import android.widget.TextView
 
+/**
+ * Activity class that show implemetation of menus
+ */
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * This method creates the options menu
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         return true
     }
 
+    /**
+     * This method creates the layout fot the activity*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textId:TextView = findViewById(R.id.textView)
+        // Getting view and register that view for context menu creation
+        val textId: TextView = findViewById(R.id.textView)
         registerForContextMenu(textId)
 
+        // Get the button view and call the function on button click.
         val buttonId = findViewById<Button>(R.id.revertButton)
         buttonId.setOnClickListener {
             changeTextColor("#03A9F4")
@@ -31,6 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * This method is used to identify the selected option and executes option functions.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_green -> {
@@ -53,12 +66,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v:View, menuInfo: ContextMenu.ContextMenuInfo?) {
+    /**
+     * This method is used to create context menu on invoking.
+     */
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.context_menu, menu)
     }
 
+    /**
+     * This method is used to identify the selected context menu option and executes option functions.
+     */
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.bold -> {
@@ -77,12 +100,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * This method is used to set font style of a text view.
+     */
     private fun changeTextStyle(style: Int) {
         val textId = findViewById<TextView>(R.id.textView)
-        textId.setTypeface(null,style)
+        textId.setTypeface(null, style)
     }
 
-
+    /**
+     * This method is used to set font color of a text view.
+     */
     private fun changeTextColor(textColor: String) {
         val textId = findViewById<TextView>(R.id.textView)
         textId.setTextColor(Color.parseColor(textColor))
