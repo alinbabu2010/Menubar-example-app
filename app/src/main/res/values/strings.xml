@@ -5,4 +5,7 @@
     <string name="violet_text">Violet</string>
     <string name="orange_text">Orange</string>
     <string name="revert_button_text">Revert Color</string>
+    <string name="normal">Normal</string>
+    <string name="italics">Italics</string>
+    <string name="bold">Bold</string>
 </resources>
